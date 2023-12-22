@@ -10,7 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { searchQuery: "", searching: false };
+    this.state = { searchQuery: "" };
     this.handleSearch = this.handleSearch.bind(this)
   }
 
