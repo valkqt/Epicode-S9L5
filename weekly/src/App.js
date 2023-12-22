@@ -10,28 +10,41 @@ import "bootstrap/dist/css/bootstrap.min.css";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { searchQuery: "" };
+    this.state = { searchQuery: "", searching: false };
+    this.handleSearch = this.handleSearch.bind(this)
+  }
 
+  handleSearch(e) {
+    this.setState({ ...this.state, searchQuery: e.target.value });
   }
 
   render() {
     return (
       <>
-        <NavC />
+        <NavC
+          searchText={this.state.searchQuery}
+          onSearchSubmit={this.handleSearch}
+        />
         <main>
           <Container fluid className="d-flex align-items-center gap-5 py-4">
             <h1>Movie Collections</h1>
             <SelectC />
           </Container>
-          <SliderC searchText="harry potter"/>
-          <SliderC searchText="star wars"/>
-          <SliderC searchText="avengers"/>
+          {this.state.searchQuery === "" &&  (
+            <>
+              <SliderC searchText="harry potter" />
+              <SliderC searchText="star wars" />
+              <SliderC searchText="avengers" />
+            </>
+          )}
+          {this.state.searchQuery !== "" && (
+            <SliderC searchText={this.state.searchQuery} />
+          )}
         </main>
         <FooterC />
       </>
     );
   }
 }
-
 
 export default App;

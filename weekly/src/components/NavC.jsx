@@ -10,6 +10,8 @@ export default class NavC extends React.Component {
     super(props);
   }
 
+
+
   render() {
     return (
       <Navbar expand="lg" className={css.navBody + (" sticky-top")}>
@@ -23,9 +25,11 @@ export default class NavC extends React.Component {
               <Nav.Link href="#">My List</Nav.Link>
             </Nav>
           <div>
+            {/* <Form onSubmit={this.props.onSearchSubmit}> */}
             <Form>
+
               <Form.Group>
-                <Form.Control type="text" placeholder="Search"/>
+                <Form.Control type="search" placeholder="Search and press Enter"/>
               </Form.Group>
             </Form>
           </div>
