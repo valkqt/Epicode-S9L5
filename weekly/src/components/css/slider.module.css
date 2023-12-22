@@ -1,0 +1,6 @@
+.slider {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 2rem;
+    max-width: 100%;
+}

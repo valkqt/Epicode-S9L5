@@ -1,0 +1,21 @@
+.commentButton {
+    background-color: #141414;
+    color: white;
+    padding: 8px;
+    border: 1px ridge rgb(70, 70, 70);
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    cursor: pointer;
+}
+
+.cardBox {
+    transform: scale(1.0);
+    transition: transform 0.3s linear;
+    position: relative;
+}
+
+.cardBox:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s linear;
+}
