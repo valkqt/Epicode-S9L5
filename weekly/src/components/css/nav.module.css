@@ -11,3 +11,12 @@
     color: white !important;
 
 }
+
+.searchBar:focus {
+    border: none !important;
+    box-shadow: none;
+}
+
+.highlighted {
+    font-weight: bold;
+}

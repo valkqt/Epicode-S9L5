@@ -2,11 +2,12 @@ import React from "react";
 import CardC from "./CardC.jsx";
 import css from "./css/slider.module.css";
 import Spinner from "react-bootstrap/Spinner";
+import Alert from "react-bootstrap/Alert"
 
 export default class SliderC extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { movies: [], loading: false };
+    this.state = { movies: [], loading: false, error: false };
   }
 
   componentDidMount() {
@@ -21,8 +22,13 @@ export default class SliderC extends React.Component {
     })
       .then((response) => response.json())
       .then((data) => {
+        if (!data.Search) {
+          this.setState({...this.state, error: true, loading:false})
+          window.setTimeout(() => window.location.reload(), 750)
+          return
+        }
         this.setState({ ...this.state, movies: data.Search, loading: false });
-      });
+      })
   }
 
   render() {
@@ -36,6 +42,11 @@ export default class SliderC extends React.Component {
             <Spinner />
             <Spinner />
           </>
+        )}
+        {this.state.error && (
+          <Alert className={css.alert}>
+            Nothing was found
+          </Alert>
         )}
         {this.state.movies.slice(0, 5).map((movie) => {
           return (

@@ -3,6 +3,7 @@ import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import CommentC from "./CommentC.jsx";
+import css from "./css/modal.module.css";
 
 function ModalC({ commentData, show, onHide, movie }) {
   const [formState, setFormState] = React.useState({
@@ -11,7 +12,7 @@ function ModalC({ commentData, show, onHide, movie }) {
   });
 
   function addComment(e) {
-    e.preventDefault()
+    e.preventDefault();
     fetch("https://striveschool-api.herokuapp.com/api/comments/", {
       method: "POST",
       headers: {
@@ -24,9 +25,8 @@ function ModalC({ commentData, show, onHide, movie }) {
         rate: formState.rating,
         elementId: movie,
       }),
-    }).catch(console.log)
+    }).catch(console.log);
   }
-  
 
   return (
     <Modal
@@ -50,6 +50,7 @@ function ModalC({ commentData, show, onHide, movie }) {
           <Form.Group>
             <Form.Label>Add Your Comment:</Form.Label>
             <Form.Control
+            className={css.inputField}
               type="text"
               placeholder="write your comment"
               onChange={(event) =>
@@ -106,13 +107,14 @@ function ModalC({ commentData, show, onHide, movie }) {
                 }
               />
             </div>
-            <Button type="submit" onClick={() => onHide()}>Submit</Button>
+            <Button type="submit" onClick={() => onHide()} className={css.formButton} >
+              Submit
+            </Button>
           </Form.Group>
         </Form>
       </Modal.Body>
     </Modal>
   );
 }
-
 
 export default ModalC;

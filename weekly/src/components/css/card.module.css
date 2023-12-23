@@ -1,12 +1,18 @@
 .commentButton {
-    background-color: #141414;
+    background-color: #dd1919;
     color: white;
     padding: 8px;
     border: 1px ridge rgb(70, 70, 70);
+    border-radius: 25%;
     position: absolute;
     bottom: 1.5rem;
     right: 1.5rem;
     cursor: pointer;
+}
+
+.commentButton:hover {
+    background-color: #ff5050;
+    color: rgb(209, 209, 209)
 }
 
 .cardBox {

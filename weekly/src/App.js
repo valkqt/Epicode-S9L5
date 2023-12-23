@@ -14,8 +14,8 @@ class App extends React.Component {
     this.handleSearch = this.handleSearch.bind(this)
   }
 
-  handleSearch(e) {
-    this.setState({ ...this.state, searchQuery: e.target.value });
+  handleSearch(pepe) {
+    this.setState({ ...this.state, searchQuery: pepe });
   }
 
   render() {
@@ -23,7 +23,7 @@ class App extends React.Component {
       <>
         <NavC
           searchText={this.state.searchQuery}
-          onSearchSubmit={this.handleSearch}
+          onSearchSubmit={(a) => this.handleSearch(a)}
         />
         <main>
           <Container fluid className="d-flex align-items-center gap-5 py-4">
